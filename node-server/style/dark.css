@@ -1,0 +1,16 @@
+.dark-mode {
+	color: white;
+	background-color: black;
+	--background: black;
+}
+
+.dark-mode button {
+	background: transparent;
+	--color: var(--grayer);
+	color: var(--color);
+	border-color: var(--color);
+}
+
+.dark-mode img {
+	filter: invert();
+}

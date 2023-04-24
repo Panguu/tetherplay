@@ -1,0 +1,16 @@
+name: tpinput
+version: "0.1"
+author: Niall B.
+about: creates a virtual controller which takes in json input
+args:
+  - name:
+      short: n
+      long: name
+      value_name: NAME
+      help: Sets controllers name must be called
+      required: true
+  - path:
+      short: p
+      long: path
+      value_name: PATH
+      help: sets path to uinput if it is not at /dev/uinput

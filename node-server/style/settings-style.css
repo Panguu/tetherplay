@@ -1,0 +1,117 @@
+.bottom-nav ul{
+	position: fixed;
+	bottom:0;
+	z-index:2;
+	margin:0;
+	list-style-type:none;
+	padding:5px;
+	border: 4px solid var(--border);
+	width: 100%;
+	background-color: var(--background);
+}.bottom-nav li{
+	position: relative;
+	display: inline;
+	bottom:0;
+	margin-right: 10%;
+}
+.bottom-nav button{
+	border-radius: 10%;
+	width: auto;
+	height: var(--button-diameter);
+}
+
+.settings-menu{
+	display:flex;
+	flex-wrap: wrap;
+	overflow: auto;
+	height: calc(100vh - var(--button-diameter));
+} .option {
+	width: 33%;
+	margin:auto;
+}.option ul{
+	list-style-type: none;	
+}.option button, input{
+	margin:auto;
+} .option-row{
+	height: 20%;
+	width: 100%;
+}.option-row button{
+	width:32%;
+	padding:10px;
+} .option button{
+	height: var(--button-diameter);
+	width: calc(var(--button-diameter)*2);
+
+}
+
+.slider{
+	-webkit-appearance: none; 
+	background:#d3d3d3;
+	width: 100%;
+	outline: none;
+	appearance: none;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: calc(var(--button-diameter)/2.5);
+  height: calc(var(--button-diameter)/2.5);
+  background: #2196F3;
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: calc(var(--button-diameter)/2.5);
+  height: calc(var(--button-diameter)/2.5);
+  background:  #2196F3;
+  cursor: pointer;
+}.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid black;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: var(--slider-diameter);
+  width: var(--slider-diameter);
+  left: 0px;
+  bottom: 0px;
+  border: 2px solid black;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .toggle-slider {
+  background-color: #2196F3;
+}
+
+input:focus + .toggle-slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .toggle-slider:before {
+  -webkit-transform: translateX(var(--slider-diameter));
+  -ms-transform: translateX(var(--slider-diameter));
+  transform: translateX(var(--slider-diameter));
+}
+
+.switch{
+	margin: 10px;
+	position: relative;
+	display: inline-block;
+	width:calc(var(--slider-diameter)*2);
+	height:var(--slider-diameter);
+} .switch input{
+	opacity:0;
+	width:0;
+	height:0;
+}
+

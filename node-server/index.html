@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head profile="http://www.w3.org/2005/10/profile">
+	<title>Tetherplay</title>
+	<link rel="icon" type="image/png" href="favicon.png">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="style.css">	
+	<link rel="stylesheet" href="dark.css">
+	<link rel="stylesheet" href="playstation.css">
+	<script src="configuration.js"></script>
+	<script src="control.js"></script>
+	<script src="checks.js"></script>
+	<script src="websocket.js"></script>
+	<script src="input.js"></script>
+	<script src="visibility.js"></script>
+	<script src="mode.js"></script>
+	<script>
+var debug;
+function showState() {
+	debug.innerHTML = state.map( v => v.valueOf() )
+}
+	</script>
+</head>
+<body>
+	<pre id="debug" class="display hidden"> </pre>
+	<div class="hidden" id="top-bar">
+		<button onClick="toggleIDVisibility('debug');">ToggleDebug</button>
+		<button onClick="toggleIDVisibility('settings-page');">Settings</button>
+		<button disabled>AdjustUI</button>
+	</div>
+	<div id="settings-page" class="hidden">
+		<iframe src="/settings" frameBorder="0"></iframe>
+	</div>
+	<div id="input">
+		<div id="left">
+			<div id="gp-ljoy" class="joystick">
+				<button> </button>
+			</div>
+		</div>
+		<div id="middle">
+			</button>
+			<button id="gp-start" class="small">start</button>
+
+			<button id="mode" onClick="mode();">
+				<img id="mode-img" src="fullscreen.png">
+			</button>
+
+		</div>
+		<div id="right">
+
+			<table class="cluster of-2" id="gamepad">
+				<tr>
+					<td><button id="gp-west"></button></td>
+					<td><button id="gp-south"></button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script>
+state = configuration.getSetup().map(item =>
+	new control[item.type] (
+		document.getElementById(item.id),
+		onStateUpdate
+	)
+)
+
+var modeStack = setModeStack();
+document.addEventListener('mozfullscreenchange',(event) => changeMode(modeStack));
+document.addEventListener('fullscreenchange', (event)=>changeMode(modeStack));
+document.addEventListener('webkitfullscreenchange', (event)=>changeMode(modeStack));
+debug = document.getElementById("debug");
+
+var inputArea = document.getElementById("input");
+inputArea.addEventListener("pointerdown", handlePressEvent, {passive: false})
+inputArea.addEventListener("pointermove", handleDragEvent, {passive: false})
+inputArea.addEventListener("pointerup", handleReleaseEvent, {passive: false})
+inputArea.addEventListener("pointercancel", handleReleaseEvent, {passive: false})
+
+inputArea.addEventListener("touchmove", evt => evt.preventDefault());
+inputArea.addEventListener("contextmenu", evt => evt.preventDefault());
+
+showState()
+	</script>
+</body>

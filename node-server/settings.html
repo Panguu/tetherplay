@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head profile="http://www.w3.org/2005/10/profile">
+	<title>Tetherplay</title>
+	<link rel="icon" type="image/png" href="favicon.png">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="settings-style.css">
+	<link rel="stylesheet" href="dark.css">
+	<script src="settings.js"></script>
+	<script src="visibility.js"></script>
+
+</head>
+<body>
+	<div class="settings-menu">
+
+		<div class="option">
+			<ul>
+				<li><button onClick="buttonSize();">Update Button Size</button></li>
+				<li><input type="range" min="3" max="21" value="12" class="slider" id="button-slider"></li>
+			</ul>
+		</div>
+		<div class="option">
+			<ul>
+				<li><button onClick="reachSize();">Update Reach</button></li>
+				<li><input type="range" min="1" max="25" value="25" class="slider" id="reach-slider"></li>
+			</ul>
+		</div>
+		<div class="option">
+			<ul>
+				<li><h4>Themes</h4></li>
+				<li><label>Light/Dark Mode</label></li>
+			<label class="switch">
+				<input type="checkbox" id="light-dark-mode"/>
+				<span class="toggle-slider" onClick="toggleDarkMode();"></span>
+			</label>
+			<li><label>Xbox/Playstation Buttons</label></li>
+			<label class="switch">
+				<input type="checkbox" id="change-gp-style"/>
+				<span class="toggle-slider" onClick="toggleGPMode();"></span>
+			</label>
+			</ul>
+		</div>
+		<div class="option">
+			<label>Choose Gampad buttons</label>
+			<ul>
+				<li><button onClick="gamePadbuttons('of-2');">2 Buttons</button></li>
+				<li><button onClick="gamePadbuttons('of-3');">3 Buttons</button></li>
+				<li><button onClick="gamePadbuttons('of-4');">4 Buttons</button></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="bottom-nav" >
+	<ul>
+		<li><button onClick="toggleParentIDVisibility('settings-page');"><img src="back.png"</button></li>
+		<li><button>Save</button></li>
+		<li><button>Export</button></li>
+		<li><button>Import</button></li>
+	</ul>
+</div>
+</body>
+

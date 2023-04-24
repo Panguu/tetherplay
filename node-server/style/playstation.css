@@ -1,0 +1,12 @@
+.ps #gp-east { --color: #ff6a45; }
+.ps #gp-east::after { content: "○"; }
+
+.ps #gp-north { --color: #2ee885; }
+.ps #gp-north::after { content: "△"; }
+
+.ps #gp-west { --color: #ff6e83; }
+.ps #gp-west::after { content: "□"; }
+
+.ps #gp-south { --color: #6eb7ff; }
+.ps #gp-south::after { content: "X"; }
+
